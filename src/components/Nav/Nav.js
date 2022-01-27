@@ -13,11 +13,11 @@ const NavRow = styled.nav`
   box-shadow: 2px 1px 10px 1px rgba(0, 0, 0, 0.2);
 `;
 
-const Nav = () => {
+const Nav = ({ isLogin, setIsLogin }) => {
   return (
     <NavRow>
       <Logo />
-      <Account />
+      <Account isLogin={isLogin} setIsLogin={setIsLogin} />
     </NavRow>
   );
 };

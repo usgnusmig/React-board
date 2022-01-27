@@ -1,6 +1,6 @@
 import React from "react";
 const SignUp = () => {
-  return <div>회원가입</div>;
+  return <button>회원가입</button>;
 };
 
 export default SignUp;

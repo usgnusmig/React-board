@@ -10,10 +10,10 @@ const AccountList = styled.ul`
   gap: 1rem;
 `;
 
-const Account = () => {
+const Account = ({ isLogin, setIsLogin }) => {
   return (
     <AccountList>
-      <SignIn />
+      <SignIn isLogin={isLogin} setIsLogin={setIsLogin} />
       <SignUp />
     </AccountList>
   );
