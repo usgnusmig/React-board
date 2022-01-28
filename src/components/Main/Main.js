@@ -5,10 +5,10 @@ const MainBox = styled.div`
   padding: 2rem;
 `;
 
-const Main = ({ isLogin }) => {
+const Main = (props) => {
   let Guest = <MainBox>로그인 후 이용해 주세요</MainBox>;
 
-  return <div>{!isLogin ? Guest : <MainBox>메인 페이지</MainBox>}</div>;
+  return <div>{!props.isLogin ? Guest : <MainBox>메인 페이지</MainBox>}</div>;
 };
 
 export default Main;

@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-import SignIn from "./SignIn";
-import SignUp from "./SignUp";
+import Login from "./Login/Login";
+import Signup from "./Signup/Signup";
 
 const AccountList = styled.ul`
   padding-right: 2rem;
@@ -10,11 +10,16 @@ const AccountList = styled.ul`
   gap: 1rem;
 `;
 
-const Account = ({ isLogin, setIsLogin }) => {
+const Account = ({ isLogin, setIsLogin, onLoginModal, setOnLoginModal }) => {
   return (
     <AccountList>
-      <SignIn isLogin={isLogin} setIsLogin={setIsLogin} />
-      <SignUp />
+      <Login
+        isLogin={isLogin}
+        setIsLogin={setIsLogin}
+        onLoginModal={onLoginModal}
+        setOnLoginModal={setOnLoginModal}
+      />
+      <Signup />
     </AccountList>
   );
 };
