@@ -27,24 +27,27 @@ const ModalOverayStyle = styled.div`
   position: fixed;
   top: 10rem;
   background-color: #ffffff;
+  width: 60%;
+  height: 20rem;
+  left: 10%;
   padding: 1rem;
   border-radius: 10px;
   z-index: 20;
   animation: ${SlideDown} 300ms ease-out forwards;
 
   @media (min-width: 768px) {
-    width: 40rem;
+    width: 30rem;
     left: calc(50% - 20rem);
   }
 `;
 
-const LoginModal = () => {
+const LoginModal = (props) => {
   const ID = document.getElementById("modal");
 
   return (
     <Fragment>
       {createPortal(<BackdropStyle />, ID)}
-      {createPortal(<ModalOverayStyle>로그인 창</ModalOverayStyle>, ID)}
+      {createPortal(<ModalOverayStyle>{props.children}</ModalOverayStyle>, ID)}
     </Fragment>
   );
 };

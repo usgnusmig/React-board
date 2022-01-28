@@ -1,4 +1,5 @@
 import React from "react";
+import LoginForm from "./LoginForm";
 import LoginModal from "./LoginModal";
 
 const Login = ({ isLogin, setIsLogin, onLoginModal, setOnLoginModal }) => {
@@ -16,7 +17,11 @@ const Login = ({ isLogin, setIsLogin, onLoginModal, setOnLoginModal }) => {
   return (
     <div>
       {!isLogin ? Login : signOut}
-      {onLoginModal ? <LoginModal /> : null}
+      {onLoginModal ? (
+        <LoginModal>
+          <LoginForm />
+        </LoginModal>
+      ) : null}
     </div>
   );
 };
