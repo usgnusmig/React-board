@@ -2,6 +2,21 @@ import React, { Fragment } from "react";
 import { createPortal } from "react-dom";
 import styled, { keyframes } from "styled-components";
 
+const LoginModal = (props) => {
+  const clickHandler = () => {
+    props.setOnLoginModal(false);
+  };
+
+  const ID = document.getElementById("modal");
+
+  return (
+    <Fragment>
+      {createPortal(<BackdropStyle onClick={clickHandler} />, ID)}
+      {createPortal(<ModalOverayStyle>{props.children}</ModalOverayStyle>, ID)}
+    </Fragment>
+  );
+};
+
 const BackdropStyle = styled.div`
   position: fixed;
   top: 0;
@@ -13,15 +28,15 @@ const BackdropStyle = styled.div`
 `;
 
 const SlideDown = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(-3rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
+    from {
+      opacity: 0;
+      transform: translateY(-3rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  `;
 
 const ModalOverayStyle = styled.div`
   position: fixed;
@@ -40,16 +55,5 @@ const ModalOverayStyle = styled.div`
     left: calc(50% - 20rem);
   }
 `;
-
-const LoginModal = (props) => {
-  const ID = document.getElementById("modal");
-
-  return (
-    <Fragment>
-      {createPortal(<BackdropStyle />, ID)}
-      {createPortal(<ModalOverayStyle>{props.children}</ModalOverayStyle>, ID)}
-    </Fragment>
-  );
-};
 
 export default LoginModal;
