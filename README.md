@@ -22,7 +22,10 @@
   - 모달창을 통해 로그인 화면 추가
 
     - 로그인 버튼 클릭시 모달 창 팝업
-    - 모달 창 내에서 비밀번호 찾기 기능 구현
+    - 로그인시 이메일, 암호 형식검사
+      (나중에 회원가입 기능 만들때 옮길것)
+    - 모달 로그인창 로그인버튼 조건부 활성화
+      - 이메일 암호 통과되면 로그인버튼 활성화됨
 
   - 회원가입 기능 구현
     - 회원가입
@@ -40,18 +43,22 @@
 src
 
 - components
+
   - Main
     - Main.js
   - Nav
     - Account
-      - Account.js
       - Login
+        - Button.js
         - Login.js
+        - LoginForm.js
         - LoginModal.js
       - Signup
         - Signup.js
+      - Account.js
     - Nav.js
     - Logo.js
   - Home.js
+
 - App.js
 - index.js
