@@ -13,37 +13,34 @@ const LoginForm = ({ isLogin, setIsLogin, onLoginModal, setOnLoginModal }) => {
   const [loginConfirm, setLoginConfirm] = useState(true);
 
   // email형식 검사
-  // @와 .이 있는지 있다면 true / 지우면 다시 false
+  // @와 .이 있는지 있다면 true 아닐경우 false
   const onChangeEmail = (e) => {
     setInputEmail(e.target.value);
 
     if (e.target.value.includes("@") && e.target.value.includes(".")) {
       setEmailConfirm(true);
-    }
-    if (!e.target.value.includes("@") || !e.target.value.includes(".")) {
+    } else {
       setEmailConfirm(false);
     }
   };
 
-  // password검사 8자리 이상 / 지우면 다시 false
+  // password검사
+  // 길이 8 이상이면 true 미만이면 false
   const onChangePassword = (e) => {
     setInputPassword(e.target.value);
 
     if (e.target.value.trim().length > 7) {
       setPasswordConfirm(true);
-    }
-    if (e.target.value.trim().length <= 7) {
+    } else {
       setPasswordConfirm(false);
     }
   };
 
-  // email과 password 검사가 통과되면 로그인 버튼 활성화
-  // 둘중 하나라도 false되면 다시 비활성화
+  // email, password 검사가 통과되어야만 로그인 버튼 활성화
   useEffect(() => {
     if (emailConfirm && passwordConfirm) {
       return setLoginConfirm(false);
-    }
-    if (!emailConfirm || !passwordConfirm) {
+    } else {
       return setLoginConfirm(true);
     }
   }, [emailConfirm, passwordConfirm]);
