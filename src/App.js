@@ -1,5 +1,6 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
 import { createGlobalStyle } from "styled-components";
+import { AuthContext } from "./context/AuthContext";
 
 import Home from "./components/Home";
 
@@ -14,6 +15,9 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const App = () => {
+  const userInfo = useContext(AuthContext);
+  console.log(userInfo);
+
   return (
     <Fragment>
       <GlobalStyle />
