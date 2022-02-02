@@ -20,7 +20,7 @@ const BoardBox = styled.div`
 const Board = () => {
   return (
     <BoardBox>
-      로그인 완료됬습니다.
+      로그인 완료됐습니다.
       <h2>게시판</h2>
     </BoardBox>
   );
