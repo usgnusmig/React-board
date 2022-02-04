@@ -8,7 +8,6 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const subscripbe = auth.onAuthStateChanged((fbUser) => {
-      console.log(`로그인 실행 `, fbUser);
       setUser(fbUser);
     });
     return subscripbe;

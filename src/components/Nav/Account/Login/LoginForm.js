@@ -1,6 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react/cjs/react.development";
 import styled from "styled-components";
+import { signInWithEmailAndPassword } from "@firebase/auth";
+import { auth } from "../../../../firebase";
 
 const LoginForm = ({ isLogin, setIsLogin, onLoginModal, setOnLoginModal }) => {
   // Input Value
@@ -50,6 +52,14 @@ const LoginForm = ({ isLogin, setIsLogin, onLoginModal, setOnLoginModal }) => {
   const submitHandler = () => {
     setIsLogin(true);
     setOnLoginModal(false);
+    signInWithEmailAndPassword(auth, inputEmail, inputPassword)
+      .then(() => {
+        alert("로그인 성공");
+        console.log(inputEmail);
+      })
+      .catch((e) => {
+        alert(e);
+      });
   };
 
   return (
