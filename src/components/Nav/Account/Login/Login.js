@@ -25,13 +25,9 @@ const Login = () => {
       .catch((e) => alert(e));
   };
 
-  const Login = <button onClick={onLoginModalHandler}>로그인</button>;
-  const Logout = <button onClick={onLogoutHandler}>로그아웃</button>;
-
   return (
     <div>
-      {!isLogin ? Login : Logout}
-
+      <button onClick={onLoginModalHandler}>로그인</button>
       {onLoginModal ? (
         // 로그인 버튼 누르면 로그인 모달창 팝업
         <LoginModal>
