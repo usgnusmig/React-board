@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from "react";
+import { Fragment } from "react";
 import { createGlobalStyle } from "styled-components";
 
 import Home from "./components/Home";

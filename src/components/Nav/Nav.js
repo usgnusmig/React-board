@@ -3,16 +3,12 @@ import styled from "styled-components";
 import Logo from "./Logo";
 import Account from "./Account/Account";
 
-const Nav = ({ isLogin, setIsLogin, onLoginModal, setOnLoginModal }) => {
+const Nav = () => {
+  //상단 네비게이션
   return (
     <NavRow>
       <Logo />
-      <Account
-        isLogin={isLogin}
-        setIsLogin={setIsLogin}
-        onLoginModal={onLoginModal}
-        setOnLoginModal={setOnLoginModal}
-      />
+      <Account />
     </NavRow>
   );
 };

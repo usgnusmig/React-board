@@ -1,23 +1,18 @@
-import { Fragment, useContext } from "react";
+import { Fragment } from "react";
 import { createPortal } from "react-dom";
-
 import styled, { keyframes } from "styled-components";
-import { AuthContext } from "../../../../context/AuthContext";
 
-const LoginModal = ({ children }) => {
-  const { setOnLoginModal } = useContext(AuthContext);
-
-  const modalOff = () => {
-    //백드롭 클릭하면 모달 닫힘
-    setOnLoginModal(false);
+const SingupModal = (props) => {
+  const clickHandler = () => {
+    props.setOnSingupModal(false);
   };
 
   const ID = document.getElementById("modal");
 
   return (
     <Fragment>
-      {createPortal(<BackdropStyle onClick={modalOff} />, ID)}
-      {createPortal(<ModalOverayStyle>{children}</ModalOverayStyle>, ID)}
+      {createPortal(<BackdropStyle onClick={clickHandler} />, ID)}
+      {createPortal(<ModalOverayStyle>{props.children}</ModalOverayStyle>, ID)}
     </Fragment>
   );
 };
@@ -61,4 +56,4 @@ const ModalOverayStyle = styled.div`
   }
 `;
 
-export default LoginModal;
+export default SingupModal;

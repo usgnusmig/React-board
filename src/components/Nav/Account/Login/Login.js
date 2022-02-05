@@ -1,14 +1,18 @@
-import React from "react";
+import { useContext } from "react";
 import LoginForm from "./LoginForm";
-import Button from "./Button";
 import LoginModal from "./LoginModal";
+
+import { AuthContext } from "../../../../context/AuthContext";
 import { signOut } from "@firebase/auth";
 import { auth } from "../../../../firebase";
 
-const Login = ({ isLogin, setIsLogin, onLoginModal, setOnLoginModal }) => {
+const Login = () => {
   //로그인 기능 root component
 
-  const onModalHandler = () => {
+  const { isLogin, setIsLogin, onLoginModal, setOnLoginModal } =
+    useContext(AuthContext);
+
+  const onLoginModalHandler = () => {
     setOnLoginModal(true);
   };
 
@@ -21,8 +25,8 @@ const Login = ({ isLogin, setIsLogin, onLoginModal, setOnLoginModal }) => {
       .catch((e) => alert(e));
   };
 
-  const Login = <Button onClick={onModalHandler}>로그인</Button>;
-  const Logout = <Button onClick={onLogoutHandler}>로그아웃</Button>;
+  const Login = <button onClick={onLoginModalHandler}>로그인</button>;
+  const Logout = <button onClick={onLogoutHandler}>로그아웃</button>;
 
   return (
     <div>
@@ -30,15 +34,11 @@ const Login = ({ isLogin, setIsLogin, onLoginModal, setOnLoginModal }) => {
 
       {onLoginModal ? (
         // 로그인 버튼 누르면 로그인 모달창 팝업
-        <LoginModal setOnLoginModal={setOnLoginModal}>
+        <LoginModal>
           {/* 모달 백그라운드 누르면 모달창 닫힘 로그인은 안됨*/}
 
           <LoginForm
-            // 로그인 버튼 누르면 모달 닫힘과 동시에 로그인 됨
-            isLogin={isLogin}
-            setIsLogin={setIsLogin}
-            onLoginModal={onLoginModal}
-            setOnLoginModal={setOnLoginModal}
+          // 로그인 버튼 누르면 모달 닫힘과 동시에 로그인 됨
           />
         </LoginModal>
       ) : null}

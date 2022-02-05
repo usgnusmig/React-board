@@ -4,7 +4,7 @@ import { AuthContext } from "../../../../context/AuthContext";
 import { auth } from "../../../../firebase";
 
 const Signup = () => {
-  const userInfo = useContext(AuthContext);
+  useContext(AuthContext);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

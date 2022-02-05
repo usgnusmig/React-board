@@ -1,13 +1,16 @@
-import React from "react";
-import { useEffect, useState } from "react/cjs/react.development";
+import { useEffect, useState, useContext, useRef } from "react";
 import styled from "styled-components";
 import { signInWithEmailAndPassword } from "@firebase/auth";
 import { auth } from "../../../../firebase";
+import { AuthContext } from "../../../../context/AuthContext";
 
-const LoginForm = ({ isLogin, setIsLogin, onLoginModal, setOnLoginModal }) => {
+const LoginForm = () => {
+  const { setIsLogin, setOnLoginModal } = useContext(AuthContext);
+
   // Input Value
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
+  const inputRef = useRef();
 
   // email, password 검사/ Login inverter
   const [emailConfirm, setEmailConfirm] = useState(false);
@@ -50,15 +53,15 @@ const LoginForm = ({ isLogin, setIsLogin, onLoginModal, setOnLoginModal }) => {
   // 로그인 버튼 누르면 작동
   // 로그인 상태가 되고 모달창은 닫힘
   const submitHandler = () => {
-    setIsLogin(true);
-    setOnLoginModal(false);
     signInWithEmailAndPassword(auth, inputEmail, inputPassword)
       .then(() => {
-        alert("로그인 성공");
-        console.log(inputEmail);
+        setIsLogin(true);
+        setOnLoginModal(false);
+        console.log(`${inputEmail}님 반갑습니다.`);
       })
       .catch((e) => {
-        alert(e);
+        alert("이메일 혹은 암호를 확인해주세요");
+        inputRef.current.focus();
       });
   };
 
@@ -71,6 +74,7 @@ const LoginForm = ({ isLogin, setIsLogin, onLoginModal, setOnLoginModal }) => {
         id="email"
         type="email"
         placeholder="이메일을 입력해주세요"
+        ref={inputRef}
         value={inputEmail}
         onChange={onChangeEmail}
       />
@@ -84,9 +88,9 @@ const LoginForm = ({ isLogin, setIsLogin, onLoginModal, setOnLoginModal }) => {
         onChange={onChangePassword}
       />
 
-      <ModalBtn type="submit" onClick={submitHandler} disabled={loginConfirm}>
+      <LoginBtn type="submit" onClick={submitHandler} disabled={loginConfirm}>
         로그인
-      </ModalBtn>
+      </LoginBtn>
     </LoginFormBox>
   );
 };
@@ -117,7 +121,7 @@ const LoginFormBox = styled.div`
   }
 `;
 
-const ModalBtn = styled.button`
+const LoginBtn = styled.button`
   cursor: pointer;
   color: ${(props) => (props.disabled ? "#f5f5f5" : "orange")};
   margin-top: 2rem;

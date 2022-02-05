@@ -4,17 +4,12 @@ import styled from "styled-components";
 import Login from "./Login/Login";
 import Signup from "./Signup/Signup";
 
-const Account = ({ isLogin, setIsLogin, onLoginModal, setOnLoginModal }) => {
+const Account = () => {
   //로그인 회원가입 리스트
 
   return (
     <AccountList>
-      <Login
-        isLogin={isLogin}
-        setIsLogin={setIsLogin}
-        onLoginModal={onLoginModal}
-        setOnLoginModal={setOnLoginModal}
-      />
+      <Login />
 
       <Signup />
     </AccountList>
