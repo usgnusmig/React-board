@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import LoginForm from "./LoginForm";
 import LoginModal from "./LoginModal";
+import AccountBtn from "../AccountBtn";
 
 import { AuthContext } from "../../../../context/AuthContext";
 
@@ -15,7 +16,10 @@ const Login = () => {
 
   return (
     <div>
-      <button onClick={onLoginModalHandler}>로그인</button>
+      <AccountBtn type="button" onClick={onLoginModalHandler}>
+        로그인
+      </AccountBtn>
+
       {onLoginModal ? (
         // 로그인 버튼 누르면 로그인 모달창 팝업
         <LoginModal>
