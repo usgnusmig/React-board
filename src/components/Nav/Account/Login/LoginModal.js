@@ -12,12 +12,12 @@ const LoginModal = ({ children }) => {
     setOnLoginModal(false);
   };
 
-  const ID = document.getElementById("modal");
+  const LOGIN_ID = document.getElementById("loginModal");
 
   return (
     <Fragment>
-      {createPortal(<BackdropStyle onClick={modalOff} />, ID)}
-      {createPortal(<ModalOverayStyle>{children}</ModalOverayStyle>, ID)}
+      {createPortal(<BackdropStyle onClick={modalOff} />, LOGIN_ID)}
+      {createPortal(<ModalOverayStyle>{children}</ModalOverayStyle>, LOGIN_ID)}
     </Fragment>
   );
 };

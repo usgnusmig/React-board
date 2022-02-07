@@ -3,26 +3,14 @@ import LoginForm from "./LoginForm";
 import LoginModal from "./LoginModal";
 
 import { AuthContext } from "../../../../context/AuthContext";
-import { signOut } from "@firebase/auth";
-import { auth } from "../../../../firebase";
 
 const Login = () => {
   //로그인 기능 root component
 
-  const { isLogin, setIsLogin, onLoginModal, setOnLoginModal } =
-    useContext(AuthContext);
+  const { onLoginModal, setOnLoginModal } = useContext(AuthContext);
 
   const onLoginModalHandler = () => {
     setOnLoginModal(true);
-  };
-
-  const onLogoutHandler = () => {
-    setIsLogin(false);
-    signOut(auth)
-      .then(() => {
-        alert("로그아웃");
-      })
-      .catch((e) => alert(e));
   };
 
   return (

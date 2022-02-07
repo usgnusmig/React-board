@@ -17,7 +17,7 @@ const LoginForm = () => {
   const [passwordConfirm, setPasswordConfirm] = useState(false);
   const [loginConfirm, setLoginConfirm] = useState(true);
 
-  // email형식 검사
+  // email 핸들링 / 형식 검사
   // @와 .이 있는지 있다면 true 아닐경우 false
   const onChangeEmail = (e) => {
     setInputEmail(e.target.value);
@@ -29,7 +29,7 @@ const LoginForm = () => {
     }
   };
 
-  // password검사
+  // password 핸들링 / 검사
   // 길이 8 이상이면 true 미만이면 false
   const onChangePassword = (e) => {
     setInputPassword(e.target.value);

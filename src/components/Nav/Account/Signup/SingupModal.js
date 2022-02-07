@@ -1,18 +1,22 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { createPortal } from "react-dom";
 import styled, { keyframes } from "styled-components";
+import { AuthContext } from "../../../../context/AuthContext";
 
-const SingupModal = (props) => {
+const SingupModal = ({ children }) => {
+  const { setOnSignupModal } = useContext(AuthContext);
+
   const clickHandler = () => {
-    props.setOnSingupModal(false);
+    // 백드롭 클릭시 모달 닫힘
+    setOnSignupModal(false);
   };
 
-  const ID = document.getElementById("modal");
+  const SIGNUP_ID = document.getElementById("signupModal");
 
   return (
     <Fragment>
-      {createPortal(<BackdropStyle onClick={clickHandler} />, ID)}
-      {createPortal(<ModalOverayStyle>{props.children}</ModalOverayStyle>, ID)}
+      {createPortal(<BackdropStyle onClick={clickHandler} />, SIGNUP_ID)}
+      {createPortal(<ModalOverayStyle>{children}</ModalOverayStyle>, SIGNUP_ID)}
     </Fragment>
   );
 };
