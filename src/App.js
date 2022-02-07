@@ -1,5 +1,5 @@
-import { Fragment } from "react";
 import { createGlobalStyle } from "styled-components";
+import { BrowserRouter } from "react-router-dom";
 
 import Home from "./components/Home";
 
@@ -15,10 +15,10 @@ const GlobalStyle = createGlobalStyle`
 
 const App = () => {
   return (
-    <Fragment>
+    <BrowserRouter>
       <GlobalStyle />
       <Home />
-    </Fragment>
+    </BrowserRouter>
   );
 };
 

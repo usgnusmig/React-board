@@ -1,4 +1,4 @@
-import { useContext, useRef } from "react";
+import { useContext } from "react";
 import SignupModal from "./SingupModal";
 import SignupForm from "./SignupForm";
 import AccountBtn from "../AccountBtn";

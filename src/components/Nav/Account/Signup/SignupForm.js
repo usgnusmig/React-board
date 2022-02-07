@@ -1,4 +1,4 @@
-import { forwardRef, useContext, useRef } from "react";
+import { useContext, useRef } from "react";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { createUserWithEmailAndPassword } from "@firebase/auth";

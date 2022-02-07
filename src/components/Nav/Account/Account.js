@@ -23,12 +23,16 @@ const Account = () => {
       .catch((e) => console.log(e));
   };
 
+  console.log(auth.email);
+
   return (
     <AccountList>
       {isLogin ? (
-        <AccountBtn type="button" onClick={onLogoutHandler}>
-          로그아웃
-        </AccountBtn>
+        <Fragment>
+          <AccountBtn type="button" onClick={onLogoutHandler}>
+            로그아웃
+          </AccountBtn>
+        </Fragment>
       ) : (
         <Fragment>
           <Login />
