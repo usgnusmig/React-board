@@ -18,12 +18,10 @@ const Account = () => {
     setIsLogin(false);
     signOut(auth)
       .then(() => {
-        alert("로그아웃");
+        console.log("로그아웃");
       })
       .catch((e) => console.log(e));
   };
-
-  console.log(auth.email);
 
   return (
     <AccountList>
@@ -36,7 +34,6 @@ const Account = () => {
       ) : (
         <Fragment>
           <Login />
-
           <Signup />
         </Fragment>
       )}

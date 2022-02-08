@@ -1,6 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
+const Board = () => {
+  return (
+    <BoardBox>
+      <h2>게시판</h2>
+    </BoardBox>
+  );
+};
+
 const BoardBox = styled.div`
   padding: 2rem;
   display: flex;
@@ -16,14 +24,5 @@ const BoardBox = styled.div`
     width: 30rem;
   }
 `;
-
-const Board = () => {
-  return (
-    <BoardBox>
-      로그인 완료됐습니다.
-      <h2>게시판</h2>
-    </BoardBox>
-  );
-};
 
 export default Board;

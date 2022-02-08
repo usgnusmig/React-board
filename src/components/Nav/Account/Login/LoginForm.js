@@ -57,7 +57,6 @@ const LoginForm = () => {
       .then(() => {
         setIsLogin(true);
         setOnLoginModal(false);
-        console.log(`${inputEmail}님 반갑습니다.`);
       })
       .catch((e) => {
         alert("이메일 혹은 암호를 확인해주세요");

@@ -2,12 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import Logo from "./Logo";
 import Account from "./Account/Account";
+import Profile from "./Profile";
 
 const Nav = () => {
   //상단 네비게이션
   return (
     <NavRow>
       <Logo />
+      <Profile />
       <Account />
     </NavRow>
   );

@@ -12,6 +12,7 @@ const SignupForm = () => {
 
   const passwordRef = useRef();
 
+  // email 형식 검사
   const emailTest = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
 
   const onSubmithandle = (data) => {
@@ -52,7 +53,6 @@ const SignupForm = () => {
         ref={passwordRef}
         {...register("password", {
           minLength: 8,
-          message: "password",
         })}
       />
 
