@@ -1,11 +1,14 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Logo = () => {
-  return <LogoBox>Logo</LogoBox>;
+  return <LogoBox to="/">Logo</LogoBox>;
 };
 
-const LogoBox = styled.h1`
+const LogoBox = styled(Link)`
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
   padding-left: 2rem;
   color: orange;
 `;

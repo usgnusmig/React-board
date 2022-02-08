@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 import Nav from "./Nav/Nav";
 import Main from "./Main/Main";
 import Board from "./Main/Board";
@@ -12,8 +11,9 @@ const Home = () => {
       <Nav />
 
       {/* 메인페이지 */}
+
       <Route path="/" component={Main} exact />
-      <Route path="Board" component={Board} />
+      <Route path="/Board" component={Board} />
     </Layout>
   );
 };
