@@ -11,6 +11,7 @@ const Profile = () => {
   const user = auth.currentUser;
 
   useEffect(() => {
+    console.log(auth.currentUser);
     if (isLogin) {
       const userName = user.email.slice(0, user.email.indexOf("@"));
       setDisplayName(userName);
