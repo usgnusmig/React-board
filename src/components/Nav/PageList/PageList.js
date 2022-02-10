@@ -6,6 +6,7 @@ const PageList = () => {
     <PageListBox>
       <PageListItems to="/">Main</PageListItems>
       <PageListItems to="/Board">Board</PageListItems>
+      <PageListItems to="/Todo">Todo</PageListItems>
     </PageListBox>
   );
 };
