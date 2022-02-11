@@ -2,13 +2,13 @@ import { useState } from "react";
 import { TodoContext } from "../context/TodoContext";
 
 const TodoProvider = ({ children }) => {
-  const [todoList, setTodoList] = useState({});
+  const [todo, setTodo] = useState([]);
 
   return (
     <TodoContext.Provider
       value={{
-        todoList,
-        setTodoList,
+        todo,
+        setTodo,
       }}
     >
       {children}
