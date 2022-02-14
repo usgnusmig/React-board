@@ -6,10 +6,14 @@ import { TodoContext } from "../../../context/TodoContext";
 const TodoList = () => {
   const { todo } = useContext(TodoContext);
 
-  let TodoListMap = todo.map((item) => {
-    <TodoItem>{item}</TodoItem>;
-  });
-  return <TodoLists>{TodoListMap}</TodoLists>;
+  return (
+    <TodoLists>
+      {todo &&
+        todo.map((item) => {
+          return <TodoItem key={item.id}>{item.text}</TodoItem>;
+        })}
+    </TodoLists>
+  );
 };
 
 const TodoLists = styled.ul`
