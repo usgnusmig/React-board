@@ -6,8 +6,10 @@ const Todo = () => {
   return (
     <TodoLayout>
       <h2>간단한 투두 리스트</h2>
-      <TodoList />
       <TodoInputForm />
+      <hr />
+      <TodoList title={"할 일"} checked={false} />
+      <TodoList title={"완료된 항목"} checked={true} />
     </TodoLayout>
   );
 };
@@ -23,7 +25,8 @@ const TodoLayout = styled.div`
   flex-direction: column;
   align-items: center;
 
-  h2 {
+  h2,
+  h3 {
     color: orange;
   }
 `;

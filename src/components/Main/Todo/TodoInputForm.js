@@ -17,12 +17,16 @@ const TodoInputForm = () => {
     const nextTodo = todo.concat({
       id: Math.random(),
       text: inputText,
+      isCompleted: false,
+      isDel: false,
     });
 
-    setTodo(nextTodo);
+    if (inputText.trim().length) setTodo(nextTodo);
+
     setInputtext("");
 
     inputRef.current.focus();
+
     console.log(todo);
   };
 
